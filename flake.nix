@@ -20,9 +20,12 @@
             nur.overlay
             (import ./tor-browser-fixup.nix)
           ];
+
+          # Doubly extra special args, just for home-manager
+          home-manager.extraSpecialArgs = { inherit secrets; };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.msm = (import ./home.nix) secrets;
+          home-manager.users.msm = (import ./home.nix);
         }
       ];
     };

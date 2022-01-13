@@ -1,4 +1,4 @@
-secrets: { config, pkgs, lib, ... }:
+{ config, pkgs, lib, secrets, ... }:
 {
   xdg.configFile."sway/config" = {
     source = pkgs.writeText "config" (builtins.readFile ./dotfiles/swayconfig);
