@@ -1,0 +1,92 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1640770690,
+        "narHash": "sha256-Rl2cD8yspug7sPRXXJkVvmjLFS8i9g04iNDzohMEuyg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "2f40cd05dc0ffe3ba69a94e9e76e0357c5b9a0b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1640418986,
+        "narHash": "sha256-a8GGtxn2iL3WAkY5H+4E0s3Q7XJt6bTOvos9qqxT5OQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5c37ad87222cfc1ec36d6cd1364514a9efc2f7f2",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1640572776,
+        "narHash": "sha256-pWMTubBy1Ep31iuQ5lEKW2mjSHWEvcbvy9uHVch2764=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d887ac7aee92e8fc54dde9060d60d927afae9d69",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-21.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nur": {
+      "locked": {
+        "lastModified": 1640816299,
+        "narHash": "sha256-SrwnV+jyCaVv2MVuBRR/Y35t8ZidyqUpsBzqtp1raWA=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "c1775e7a7d0f1f38d089f26b137712e9e950e87a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs_2",
+        "nur": "nur",
+        "secrets": "secrets"
+      }
+    },
+    "secrets": {
+      "locked": {
+        "lastModified": 1642042750,
+        "narHash": "sha256-qEBmYiSC7UWmvM3gfxByeaoISHk7Rec5fWE3G+t3XQQ=",
+        "ref": "master",
+        "rev": "a8926a699935d8afdd41043a22adbdd7643261df",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/msm-code/nix-secrets"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/msm-code/nix-secrets"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
