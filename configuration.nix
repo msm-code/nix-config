@@ -142,7 +142,6 @@
       };
       forward-zone = [{
         name = ".";
-        # forward-addr = [ "1.0.0.1" "1.1.1.1" ];
         
         forward-tls-upstream = true;
 	      forward-first = false;
