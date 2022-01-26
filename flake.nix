@@ -13,6 +13,7 @@
       specialArgs = { inherit secrets; };
       modules = [
         ./configuration.nix
+        ./yubikey.nix
         ./borgbackup.nix
         home-manager.nixosModules.home-manager
         {

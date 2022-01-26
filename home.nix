@@ -130,10 +130,11 @@
     [ (import ./scripts/lastd.nix { pkgs = pkgs; }) ] ++
     [
       pkgs.fd
-      pkgs.cached-nix-shell
       pkgs.keepassxc
       pkgs.pavucontrol
       pkgs.tor-browser-bundle-bin
+      pkgs.xxd
+      pkgs.nur.repos.plabadens.diskgraph
     ];
 
   home.sessionVariables.EDITOR = "nvim";
