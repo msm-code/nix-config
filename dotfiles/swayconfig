@@ -206,6 +206,7 @@ bar {
 hide_edge_borders both
 
 input "1:1:AT_Translated_Set_2_keyboard" xkb_layout "pl(intl)"
+input '*' dwt disabled
 
 bindsym Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 

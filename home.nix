@@ -79,7 +79,7 @@
           # block unnecessary web content
           ublock-origin
           # block tracking content (and save bandwidth)
-          decentraleyes
+          localcdn
         ];
     };
 
