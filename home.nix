@@ -134,6 +134,7 @@
       pkgs.pavucontrol
       pkgs.tor-browser-bundle-bin
       pkgs.xxd
+      pkgs.file
       pkgs.nur.repos.plabadens.diskgraph
     ];
 
