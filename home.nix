@@ -146,6 +146,7 @@
 
   home.packages =
     [ (import ./scripts/lastd.nix { pkgs = pkgs; }) ] ++
+    [ (import ./gsocket.nix pkgs) ] ++
     [
       pkgs.fd
       pkgs.keepassxc
@@ -158,6 +159,8 @@
       pkgs.joplin-desktop
       pkgs.tcpdump
       pkgs.wget
+      pkgs.wireshark
+      pkgs.usbutils
     ];
 
   home.sessionVariables.EDITOR = "nvim";

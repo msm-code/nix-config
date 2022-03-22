@@ -15,7 +15,9 @@
     # Mount /tmp as tmpfs, but don't give it half of my RAM.
     tmpOnTmpfs = true;
     tmpOnTmpfsSize = "10%";
+  };
 
+  boot = {
     # VFIO: disable nvidia and nouveau drives
     blacklistedKernelModules = [ "nvidia" "nouveau" ];
 
@@ -23,8 +25,8 @@
     kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
 
     extraModprobeConfig =
-      let nvidia_pci_id = "10de:1fb8";
-      in "options vfio-pci ids=${nvidia_pci_id}";
+       let nvidia_pci_id = "10de:1fb8";
+       in "options vfio-pci ids=${nvidia_pci_id}";
   };
 
   time.timeZone = "Europe/Warsaw";
@@ -191,7 +193,6 @@
         '';
       };
     };
-    virtualbox.host.enable = true;
   };
   users.users.qemu-libvirtd.extraGroups = [ "input" ];
   users.extraGroups.vboxusers.members = [ "msm" ];
