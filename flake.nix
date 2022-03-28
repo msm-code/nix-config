@@ -16,6 +16,7 @@
         ./yubikey.nix
         ./borgbackup.nix
         ./p4net.nix
+        ./iphone.nix
         home-manager.nixosModules.home-manager
         {
           nixpkgs.overlays = [

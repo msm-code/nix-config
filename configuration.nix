@@ -55,18 +55,18 @@
   };
 
   environment.systemPackages = with pkgs; [
-    any-nix-shell
-    bat
-    virt-manager
+    any-nix-shell  # i want fish, not dirty bash
+    bat  # better cat
+    virt-manager  # manage virtual machines
     p7zip
     python3
-    borgbackup
-    bubblewrap
-    sshfs
-    docker-compose
-    htop
-    # signal communicator
-    signal-desktop
+    borgbackup  # automated backup
+    bubblewrap  # run programs in a jail
+    sshfs  # mount ssh directories locally
+    docker-compose  # docker-compose, duh
+    htop  # better top
+    imv  # wayland-native image viewer
+    signal-desktop  # signal communicator
   ];
   environment.variables.EDITOR = "nvim";
   environment.variables.SUDO_EDITOR = "nvim";
@@ -116,6 +116,8 @@
       # Smart window switcher for sway.
       # For some reason doesn't work right now?
       swayr
+      # Auto screenlock
+      swayidle
     ];
   };
 
