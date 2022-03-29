@@ -139,11 +139,11 @@
   services.p4net = {
     enable = true;
     privateKeyFile = "/home/msm/data/wg/p4net.priv";
-    ips = "198.18.70.2/24";
+    ips = "198.18.70.2/16";
     listenPort = 51820;
     peers = [{
       publicKey = "ALxno1mlbRdMJ34n0eQXeLb6lukDBrC39X9qZJz3rSU=";
-      allowedIPs = [ "198.18.70.0/24" ];
+      allowedIPs = [ "198.18.0.0/16" ];
       endpoint = "135.181.113.20:51820";
     }];
   };
