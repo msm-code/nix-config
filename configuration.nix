@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, p4net, ... }:
 {
   imports =
     [

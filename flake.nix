@@ -4,9 +4,10 @@
     home-manager.url = "github:nix-community/home-manager";
     nur.url = "github:nix-community/NUR";
     secrets.url = "git+ssh://git@github.com/msm-code/nix-secrets";
+    p4net.url = "path:/home/msm/Projects/./p4net-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, secrets }: {
+  outputs = { self, nixpkgs, home-manager, nur, secrets, p4net }: {
     nixosConfigurations.transient =
       nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -15,8 +16,8 @@
         ./configuration.nix
         ./yubikey.nix
         ./borgbackup.nix
-        ./p4net.nix
         ./iphone.nix
+        p4net.nixosModule
         home-manager.nixosModules.home-manager
         {
           nixpkgs.overlays = [
