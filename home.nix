@@ -98,6 +98,8 @@
             localcdn
             # calendar checker plus
             checker-plus-for-calendar
+            # magic internet money
+            metamask
           ];
         };
 
@@ -147,21 +149,21 @@
   home.packages =
     [ (import ./scripts/lastd.nix { pkgs = pkgs; }) ] ++
     [ (import ./gsocket.nix pkgs) ] ++
-    [
-      pkgs.fd
-      pkgs.keepassxc
-      pkgs.pavucontrol
-      pkgs.tor-browser-bundle-bin
-      pkgs.xxd
-      pkgs.file
-      pkgs.evince
-      pkgs.nur.repos.plabadens.diskgraph
-      pkgs.joplin-desktop
-      pkgs.tcpdump
-      pkgs.wget
-      pkgs.wireshark
-      pkgs.usbutils
-    ];
+    (with pkgs; [
+      fd
+      keepassxc
+      pavucontrol
+      tor-browser-bundle-bin
+      xxd
+      file
+      evince
+      nur.repos.plabadens.diskgraph
+      joplin-desktop
+      tcpdump
+      wget
+      wireshark
+      usbutils
+    ]);
 
   home.sessionVariables.EDITOR = "nvim";
 }

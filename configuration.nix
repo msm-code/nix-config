@@ -4,6 +4,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./p4net-wip.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -134,6 +135,18 @@
   services.avahi = {
     nssmdns = true;
     enable = true;
+  };
+
+  services.p4net = {
+    enable = true;
+    privateKeyFile = "/home/msm/data/wg/p4net.priv";
+    ips = "198.18.70.2/24";
+    listenPort = 51820;
+    peers = [{
+      publicKey = "ALxno1mlbRdMJ34n0eQXeLb6lukDBrC39X9qZJz3rSU=";
+      allowedIPs = [ "198.18.70.0/24" ];
+      endpoint = "135.181.113.20:51820";
+    }];
   };
 
   # Local caching DNS server
