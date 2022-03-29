@@ -4,7 +4,7 @@
     home-manager.url = "github:nix-community/home-manager";
     nur.url = "github:nix-community/NUR";
     secrets.url = "git+ssh://git@github.com/msm-code/nix-secrets";
-    p4net.url = "path:/home/msm/Projects/./p4net-nix";
+    p4net.url = "github:Patient-Engineering/p4net-nix";
   };
 
   outputs = { self, nixpkgs, home-manager, nur, secrets, p4net }: {
