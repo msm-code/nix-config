@@ -129,21 +129,23 @@
     };
   };
 
-  services = {
-    mpd = {
-      enable = true;
-    };
+  services.mpd = {
+    enable = true;
+  };
 
-    spotifyd = {
-      enable = true;
-      settings = {
-        global = {
-          username = "msm2e4d534d";
-          password = secrets.spotifypassword;
-          device_name = "transient";
-        };
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        username = "msm2e4d534d";
+        password = secrets.spotifypassword;
+        device_name = "transient";
       };
     };
+  };
+
+  services.swayidle = {
+    enable = true;
   };
 
   home.packages =

@@ -67,6 +67,8 @@
     htop  # better top
     imv  # wayland-native image viewer
     signal-desktop  # signal communicator
+    nmap  # popular port scanner
+    dig  # dns debugging tool
   ];
   environment.variables.EDITOR = "nvim";
   environment.variables.SUDO_EDITOR = "nvim";
@@ -158,9 +160,7 @@
       };
       forward-zone = [{
         name = ".";
-        
         forward-tls-upstream = true;
-	      forward-first = false;
         forward-addr = [ "1.1.1.1@853#cloudflare-dns.com" ];
       }];
     };

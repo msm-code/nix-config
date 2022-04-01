@@ -22,7 +22,6 @@
         {
           nixpkgs.overlays = [
             nur.overlay
-            (import ./tor-browser-fixup.nix)
           ];
 
           # Doubly extra special args, just for home-manager
