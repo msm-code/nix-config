@@ -130,7 +130,10 @@
     enable = true;
     drivers = [ pkgs.hplip ];
   };
-  services.getty.autologinUser = "msm";
+
+  services.getty = {
+    autologinUser = "msm";
+  };
 
   # Support for mdns
   services.avahi = {

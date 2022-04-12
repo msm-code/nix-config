@@ -133,23 +133,12 @@
     enable = true;
   };
 
-  services.spotifyd = {
-    enable = true;
-    settings = {
-      global = {
-        username = "msm2e4d534d";
-        password = secrets.spotifypassword;
-        device_name = "transient";
-      };
-    };
-  };
-
   services.swayidle = {
     enable = true;
   };
 
   home.packages =
-    [ (import ./scripts/lastd.nix { pkgs = pkgs; }) ] ++
+    [ (import ./scripts/lastd.nix pkgs) ] ++
     [ (import ./gsocket.nix pkgs) ] ++
     (with pkgs; [
       fd
