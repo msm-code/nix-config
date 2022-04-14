@@ -154,6 +154,7 @@
       wget
       wireshark
       usbutils
+      kubectl
     ]);
 
   home.sessionVariables.EDITOR = "nvim";

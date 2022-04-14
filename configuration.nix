@@ -1,5 +1,10 @@
-{ config, pkgs, p4net, ... }:
+{ config, pkgs, p4net, lib, ... }:
 {
+
+   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+     "teamspeak-client"
+   ];
+
   imports =
     [
       # Include the results of the hardware scan.
@@ -17,17 +22,17 @@
     tmpOnTmpfsSize = "10%";
   };
 
-  boot = {
-    # VFIO: disable nvidia and nouveau drives
-    blacklistedKernelModules = [ "nvidia" "nouveau" ];
+  # boot = {
+  #   # VFIO: disable nvidia and nouveau drives
+  #   blacklistedKernelModules = [ "nvidia" "nouveau" ];
 
-    # kernel modules required for VFIO
-    kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+  #   # kernel modules required for VFIO
+  #   kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
 
-    extraModprobeConfig =
-       let nvidia_pci_id = "10de:1fb8";
-       in "options vfio-pci ids=${nvidia_pci_id}";
-  };
+  #   extraModprobeConfig =
+  #      let nvidia_pci_id = "10de:1fb8";
+  #      in "options vfio-pci ids=${nvidia_pci_id}";
+  # };
 
   time.timeZone = "Europe/Warsaw";
 
@@ -55,6 +60,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    teamspeak_client
     any-nix-shell  # i want fish, not dirty bash
     bat  # better cat
     virt-manager  # manage virtual machines
@@ -161,11 +167,17 @@
         interface = [ "127.0.0.1" ];
         cache-min-ttl = 3600;
       };
-      forward-zone = [{
-        name = ".";
-        forward-tls-upstream = true;
-        forward-addr = [ "1.1.1.1@853#cloudflare-dns.com" ];
-      }];
+      forward-zone = [
+        {
+          name = "berylia.org.";
+          forward-addr = [ "100.100.100.2" ];
+        }
+        {
+          name = ".";
+          forward-tls-upstream = true;
+          forward-addr = [ "1.1.1.1@853#cloudflare-dns.com" ];
+        }
+      ];
     };
   };
 
