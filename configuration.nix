@@ -3,6 +3,7 @@
 
    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
      "teamspeak-client"
+     "obsidian"
    ];
 
   imports =
@@ -22,17 +23,17 @@
     tmpOnTmpfsSize = "10%";
   };
 
-  # boot = {
-  #   # VFIO: disable nvidia and nouveau drives
-  #   blacklistedKernelModules = [ "nvidia" "nouveau" ];
+  boot = {
+    # VFIO: disable nvidia and nouveau drives
+    blacklistedKernelModules = [ "nvidia" "nouveau" ];
 
-  #   # kernel modules required for VFIO
-  #   kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+    # kernel modules required for VFIO
+    kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
 
-  #   extraModprobeConfig =
-  #      let nvidia_pci_id = "10de:1fb8";
-  #      in "options vfio-pci ids=${nvidia_pci_id}";
-  # };
+    extraModprobeConfig =
+       let nvidia_pci_id = "10de:1fb8";
+       in "options vfio-pci ids=${nvidia_pci_id}";
+  };
 
   time.timeZone = "Europe/Warsaw";
 
@@ -60,7 +61,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    teamspeak_client
+    teamspeak_client  # military grade chat app
+    obsidian  # :ehh: the new note taking app I want to try
     any-nix-shell  # i want fish, not dirty bash
     bat  # better cat
     virt-manager  # manage virtual machines
@@ -161,7 +163,7 @@
 
   # Local caching DNS server
   services.unbound = {
-    enable = true;
+    enable = false;
     settings = {
       server = {
         interface = [ "127.0.0.1" ];
@@ -183,6 +185,15 @@
 
   # Enable FsTrim for SSD
   services.fstrim.enable = true;
+
+  # Kot keeps turning off my laptop
+  services.logind.extraConfig = ''
+    # don’t shutdown when power button is short-pressed
+    HandlePowerKey=ignore
+  '';
+
+  # Save the trees (and my battery)
+  powerManagement.powertop.enable = true;
 
   # Enable nix flakes
   nix = {
@@ -216,7 +227,9 @@
             "/dev/rtc",
             "/dev/hpet",
             "/dev/input/by-id/usb-YICHIP_Wireless_Device-if01-event-mouse",
+            "/dev/input/by-id/usb-2188_USB_OPTICAL_MOUSE-event-mouse",
             "/dev/input/by-id/usb-NOVATEK_USB_Keyboard-event-kbd",
+            "/dev/input/by-id/usb-1267_PS_2+USB_Mouse-event-mouse",
           ]
           namespaces = []
         '';
