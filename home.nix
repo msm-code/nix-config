@@ -4,6 +4,10 @@
     source = pkgs.writeText "config" (builtins.readFile ./dotfiles/swayconfig);
   };
 
+  xdg.configFile."alacritty/alacritty.yml" = {
+    source = pkgs.writeText "config" (builtins.readFile ./dotfiles/alacritty.yml);
+  };
+
   programs = {
     git = {
       enable = true;
@@ -155,8 +159,11 @@
       wireshark
       usbutils
       kubectl
+      ghidra-bin
     ]);
 
   home.sessionVariables.EDITOR = "nvim";
+
+  home.stateVersion = "21.11";
 }
 

@@ -81,9 +81,9 @@
   environment.variables.EDITOR = "nvim";
   environment.variables.SUDO_EDITOR = "nvim";
 
-  environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && sway
-  '';
+  # environment.loginShellInit = ''
+  #   [[ "$(tty)" == /dev/tty1 ]] && sway
+  # '';
 
   fonts.fonts = [ pkgs.font-awesome ];
 
@@ -171,10 +171,6 @@
       };
       forward-zone = [
         {
-          name = "berylia.org.";
-          forward-addr = [ "100.100.100.2" ];
-        }
-        {
           name = ".";
           forward-tls-upstream = true;
           forward-addr = [ "1.1.1.1@853#cloudflare-dns.com" ];
@@ -192,8 +188,13 @@
     HandlePowerKey=ignore
   '';
 
-  # Save the trees (and my battery)
-  powerManagement.powertop.enable = true;
+  # # Save the trees (and my battery)
+  # powerManagement = { 
+  #   enable = true; 
+  #   cpuFreqGovernor = "powersave"; 
+  # };
+  # powerManagement.powertop.enable = true;
+  # services.tlp.enable = true;
 
   # Enable nix flakes
   nix = {
@@ -230,14 +231,23 @@
             "/dev/input/by-id/usb-2188_USB_OPTICAL_MOUSE-event-mouse",
             "/dev/input/by-id/usb-NOVATEK_USB_Keyboard-event-kbd",
             "/dev/input/by-id/usb-1267_PS_2+USB_Mouse-event-mouse",
+            "/dev/input/by-id/usb-Dell_Computer_Corp_Dell_Universal_Receiver-if01-event-mouse",
+            "/dev/input/by-id/usb-Primax_Dell_Wired_Multimedia_Keyboard-event-kbd"
           ]
           namespaces = []
         '';
       };
     };
   };
+
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+
   users.users.qemu-libvirtd.extraGroups = [ "input" ];
   users.extraGroups.vboxusers.members = [ "msm" ];
+
+  xdg.portal.enable = true;
+  services.flatpak.enable = true;
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).

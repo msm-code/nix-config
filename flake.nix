@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
     home-manager.url = "github:nix-community/home-manager";
     nur.url = "github:nix-community/NUR";
     secrets.url = "git+ssh://git@github.com/msm-code/nix-secrets";
@@ -14,7 +14,7 @@
       specialArgs = { inherit secrets; };
       modules = [
         ./configuration.nix
-        ./yubikey.nix
+        #./yubikey.nix
         ./borgbackup.nix
         ./iphone.nix
         p4net.nixosModule
