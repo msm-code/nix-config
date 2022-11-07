@@ -159,7 +159,13 @@
       wireshark
       usbutils
       kubectl
+      colordiff
+
+      # CTF and work related stuff
       ghidra-bin
+      bintools
+      python38Packages.malduck
+      python38Packages.pycrypto
     ]);
 
   home.sessionVariables.EDITOR = "nvim";

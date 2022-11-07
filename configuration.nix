@@ -1,6 +1,5 @@
-{ config, pkgs, p4net, lib, ... }:
+{ config, pkgs, p4net, lib, nixpkgs-latest, ... }:
 {
-
    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
      "teamspeak-client"
      "obsidian"
@@ -74,7 +73,7 @@
     docker-compose  # docker-compose, duh
     htop  # better top
     imv  # wayland-native image viewer
-    signal-desktop  # signal communicator
+    nixpkgs-latest.legacyPackages.x86_64-linux.signal-desktop  # signal communicator
     nmap  # popular port scanner
     dig  # dns debugging tool
   ];
