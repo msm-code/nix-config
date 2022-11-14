@@ -22,17 +22,17 @@
     tmpOnTmpfsSize = "10%";
   };
 
-  boot = {
-    # VFIO: disable nvidia and nouveau drives
-    blacklistedKernelModules = [ "nvidia" "nouveau" ];
+  # boot = {
+  #   # VFIO: disable nvidia and nouveau drives
+  #   blacklistedKernelModules = [ "nvidia" "nouveau" ];
 
-    # kernel modules required for VFIO
-    kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+  #   # kernel modules required for VFIO
+  #   kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
 
-    extraModprobeConfig =
-       let nvidia_pci_id = "10de:1fb8";
-       in "options vfio-pci ids=${nvidia_pci_id}";
-  };
+  #   extraModprobeConfig =
+  #      let nvidia_pci_id = "10de:1fb8";
+  #      in "options vfio-pci ids=${nvidia_pci_id}";
+  # };
 
   time.timeZone = "Europe/Warsaw";
 
@@ -76,6 +76,12 @@
     nixpkgs-latest.legacyPackages.x86_64-linux.signal-desktop  # signal communicator
     nmap  # popular port scanner
     dig  # dns debugging tool
+
+    (retroarch.override {
+      cores = [
+        libretro.mgba
+      ];
+    })
   ];
   environment.variables.EDITOR = "nvim";
   environment.variables.SUDO_EDITOR = "nvim";
@@ -154,10 +160,15 @@
     ips = "198.18.70.2/16";
     listenPort = 51820;
     peers = [{
-      publicKey = "ALxno1mlbRdMJ34n0eQXeLb6lukDBrC39X9qZJz3rSU=";
+      # msm (p4vps)
+      publicKey = "3hnEZtMv/k9PnoSAbEMrccG6bA3Paq1vwOafppGJlRc=";
       allowedIPs = [ "198.18.0.0/16" ];
-      endpoint = "135.181.113.20:51820";
+      endpoint = "145.239.81.240:51820";
     }];
+  };
+
+  services.keybase = {
+    enable = true;
   };
 
   # Local caching DNS server

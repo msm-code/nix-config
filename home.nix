@@ -1,4 +1,4 @@
-{ buildFirefoxXpiAddon, config, pkgs, lib, secrets, ... }:
+{ buildFirefoxXpiAddon, config, pkgs, lib, secrets, nixpkgs-latest, ... }:
 {
   xdg.configFile."sway/config" = {
     source = pkgs.writeText "config" (builtins.readFile ./dotfiles/swayconfig);
@@ -33,7 +33,9 @@
       viAlias = true;
       vimAlias = true;
       extraConfig = builtins.readFile ./dotfiles/init.vim;
-      plugins = with pkgs.vimPlugins; [
+      plugins =  (with nixpkgs-latest.legacyPackages.x86_64-linux.vimPlugins; [
+      nvim-treesitter.withAllGrammars
+    ]) ++ (with pkgs.vimPlugins; [
         vim-surround
         # coc-nvim coc-git coc-highlight coc-python coc-rls coc-vetur coc-vimtex coc-yaml coc-html coc-json # auto completion
         vim-nix
@@ -42,7 +44,7 @@
         fzf-vim
         # nerdtree
         rainbow
-      ];
+      ]);
     };
 
     tmux = {
@@ -153,6 +155,7 @@
       file
       evince
       nur.repos.plabadens.diskgraph
+      # nur.repos.genesis.frida-tools
       joplin-desktop
       tcpdump
       wget

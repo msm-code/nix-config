@@ -25,7 +25,7 @@
           ];
 
           # Doubly extra special args, just for home-manager
-          home-manager.extraSpecialArgs = { inherit secrets; };
+          home-manager.extraSpecialArgs = { inherit secrets; inherit nixpkgs-latest; };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.msm = (import ./home.nix);
