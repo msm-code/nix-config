@@ -14,10 +14,14 @@
       system = "x86_64-linux";
       specialArgs = { inherit secrets; inherit nixpkgs-latest; };
       modules = [
-        ./configuration.nix
-        #./yubikey.nix
-        ./borgbackup.nix
-        ./iphone.nix
+        # system configs
+        ./modules/hardware-configuration.nix
+        ./modules/configuration.nix
+        # random features
+        ./modules/p4net.nix
+        #./modules/yubikey.nix
+        ./modules/borgbackup.nix
+        ./modules/iphone.nix
         p4net.nixosModule
         home-manager.nixosModules.home-manager
         {
@@ -29,7 +33,7 @@
           home-manager.extraSpecialArgs = { inherit secrets; inherit nixpkgs-latest; };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.msm = (import ./home.nix);
+          home-manager.users.msm = (import ./home-manager/home.nix);
         }
       ];
     };

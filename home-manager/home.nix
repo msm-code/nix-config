@@ -1,11 +1,15 @@
 { buildFirefoxXpiAddon, config, pkgs, lib, secrets, nixpkgs-latest, ... }:
 {
   xdg.configFile."sway/config" = {
-    source = pkgs.writeText "config" (builtins.readFile ./dotfiles/swayconfig);
+    source = pkgs.writeText "config" (builtins.readFile ./dotfiles/sway/config);
   };
 
   xdg.configFile."alacritty/alacritty.yml" = {
-    source = pkgs.writeText "config" (builtins.readFile ./dotfiles/alacritty.yml);
+    source = pkgs.writeText "config" (builtins.readFile ./dotfiles/alacritty/alacritty.yml);
+  };
+
+  xdg.configFile."matterhorn/config.ini" = {
+    source = pkgs.writeText "config" (builtins.readFile ./dotfiles/matterhorn/config.ini);
   };
 
   programs = {
@@ -33,11 +37,11 @@
       viAlias = true;
       vimAlias = true;
       extraConfig = builtins.readFile ./dotfiles/init.vim;
-      plugins =  (with nixpkgs-latest.legacyPackages.x86_64-linux.vimPlugins; [
-      nvim-treesitter.withAllGrammars
-    ]) ++ (with pkgs.vimPlugins; [
+      plugins = (with nixpkgs-latest.legacyPackages.x86_64-linux.vimPlugins; [
+        nvim-treesitter.withAllGrammars
+      ]) ++ (with pkgs.vimPlugins; [
         vim-surround
-        # coc-nvim coc-git coc-highlight coc-python coc-rls coc-vetur coc-vimtex coc-yaml coc-html coc-json # auto completion
+        coc-nvim coc-git coc-highlight coc-python coc-rls coc-vetur coc-vimtex coc-yaml coc-html coc-json # auto completion
         vim-nix
         # vim-easymotion
         # vim-sneak
@@ -164,6 +168,8 @@
       kubectl
       colordiff
       aerc  # email client
+      nodejs
+      nixpkgs-latest.legacyPackages.x86_64-linux.matterhorn  # matterhorn with my patches
 
       # CTF and work related stuff
       ghidra-bin

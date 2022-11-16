@@ -1,15 +1,6 @@
 { config, pkgs, p4net, lib, nixpkgs-latest, ... }:
 {
-   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-     "teamspeak-client"
-     "obsidian"
-   ];
-
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  # File for basic system configuration
 
   # Use the systemd-boot EFI boot loader.
   boot = {
@@ -60,8 +51,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    teamspeak_client  # military grade chat app
-    obsidian  # :ehh: the new note taking app I want to try
     any-nix-shell  # i want fish, not dirty bash
     bat  # better cat
     virt-manager  # manage virtual machines
@@ -85,10 +74,6 @@
   ];
   environment.variables.EDITOR = "nvim";
   environment.variables.SUDO_EDITOR = "nvim";
-
-  # environment.loginShellInit = ''
-  #   [[ "$(tty)" == /dev/tty1 ]] && sway
-  # '';
 
   fonts.fonts = [ pkgs.font-awesome ];
 
@@ -144,32 +129,10 @@
     drivers = [ pkgs.hplip ];
   };
 
-  services.getty = {
-    autologinUser = "msm";
-  };
-
   # Support for mdns
   services.avahi = {
     nssmdns = true;
     enable = true;
-  };
-
-  services.p4net = {
-    enable = true;
-    privateKeyFile = "/home/msm/data/wg/p4net.priv";
-    ips = "198.18.70.2/16";
-    instances = {
-      home = {
-        listenPort = 51820;
-        peers = [{
-          # msm (p4vps)
-          route = "198.18.0.0/16";
-          publicKey = "3hnEZtMv/k9PnoSAbEMrccG6bA3Paq1vwOafppGJlRc=";
-          allowedIPs = [ "198.18.0.0/16" ];
-          endpoint = "145.239.81.240:51820";
-        }];
-      };
-    };
   };
 
   services.keybase = {
@@ -202,14 +165,6 @@
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore
   '';
-
-  # # Save the trees (and my battery)
-  # powerManagement = { 
-  #   enable = true; 
-  #   cpuFreqGovernor = "powersave"; 
-  # };
-  # powerManagement.powertop.enable = true;
-  # services.tlp.enable = true;
 
   # Enable nix flakes
   nix = {
@@ -255,11 +210,7 @@
     };
   };
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
-
   users.users.qemu-libvirtd.extraGroups = [ "input" ];
-  users.extraGroups.vboxusers.members = [ "msm" ];
 
   xdg.portal.enable = true;
   services.flatpak.enable = true;
