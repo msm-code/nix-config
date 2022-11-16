@@ -163,6 +163,7 @@
       usbutils
       kubectl
       colordiff
+      aerc  # email client
 
       # CTF and work related stuff
       ghidra-bin

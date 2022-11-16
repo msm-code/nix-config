@@ -101,17 +101,14 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1648517659,
-        "narHash": "sha256-+ZhIbYnDiYgSlZboXufzFnAi26T+njPFqweW2fyapVc=",
-        "owner": "Patient-Engineering",
-        "repo": "p4net-nix",
-        "rev": "3387e64080fdccab8f6ff7682e7195f9bfa37723",
-        "type": "github"
+        "lastModified": 1668476507,
+        "narHash": "sha256-sShH1hY9bqMFjRylyV/v02xluEMcWSliELRsZypfsKs=",
+        "type": "git",
+        "url": "file:///home/msm/Projects/p4net-nix"
       },
       "original": {
-        "owner": "Patient-Engineering",
-        "repo": "p4net-nix",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/msm/Projects/p4net-nix"
       }
     },
     "root": {
