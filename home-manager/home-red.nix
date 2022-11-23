@@ -9,7 +9,8 @@
   imports = [
     ./modules/terminal.nix
     ./modules/fish-advanced.nix
-    # ./modules/nvim.nix
+    ./modules/nvim.nix
+    ./modules/firefox.nix
   ];
 
   home.packages =
@@ -17,6 +18,5 @@
     (with pkgs; [
       any-nix-shell
     ]);
-
 }
 
