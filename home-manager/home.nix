@@ -113,12 +113,6 @@
           ];
         };
 
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-      settings = { };
-    };
-
     vscode = {
       enable = true;
       package = pkgs.vscodium;
@@ -126,6 +120,12 @@
         haskell.haskell
         justusadam.language-haskell
       ];
+    };
+
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+      settings = { };
     };
 
     fzf = {

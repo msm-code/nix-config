@@ -8,6 +8,7 @@
 
   imports = [
     ./modules/terminal.nix
+    ./modules/fish-advanced.nix
     # ./modules/nvim.nix
   ];
 
