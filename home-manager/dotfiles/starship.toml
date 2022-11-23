@@ -1,0 +1,12 @@
+[username]
+show_always = true
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+format =  "@[$hostname](bold blue) "
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+repo_root_style = "bold"

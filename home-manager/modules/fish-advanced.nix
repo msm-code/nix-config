@@ -1,5 +1,9 @@
 { lib, pkgs, ... }:
 {
+  xdg.configFile."starship.toml" = {
+    source = pkgs.writeText "config" (builtins.readFile ../dotfiles/starship.toml);
+  };
+
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
