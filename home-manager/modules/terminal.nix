@@ -13,9 +13,28 @@
 
   programs.fish = {
     enable = true;
+    shellAbbrs = {
+      gc = "git checkout";
+      gd = "git diff";
+      gdc = "git diff --cached";
+      gl = "git lg";
+      gp = "git push origin (git branch --show-current)";
+      gs = "git status";
+      k = "kubectl";
+      kgp = "kubectl get pod";
+      kgs = "kubectl get service";
+      ns = "nix-shell -p";
+      s = "sudo";
+      t = "todoist";
+      td = "todoist close";
+      tl = "todoist\ --color\ list\ always\ --filter\ \'p1\ \|\ overdue\ \|\ today\ \|\ tomorrow\'";
+      ts = "todoist sync";
+      x = "xargs -i,,";
+      xc = "wl-copy";
+    };
     interactiveShellInit = ''
       set EDITOR nvim
-      ${pkgs.any-nix-shell} fish --info-right | source
+      any-nix-shell fish --info-right | source
     '';
   };
 

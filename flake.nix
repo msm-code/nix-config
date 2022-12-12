@@ -22,6 +22,7 @@
         #./modules/yubikey.nix
         ./modules/borgbackup.nix
         ./modules/iphone.nix
+        ./modules/spotify.nix
         p4net.nixosModule
         home-manager.nixosModules.home-manager
         {

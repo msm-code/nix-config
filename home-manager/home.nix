@@ -40,6 +40,7 @@
     [ (import ./scripts/lastd.nix pkgs) ] ++
     [ (import ./gsocket.nix pkgs) ] ++
     (with pkgs; [
+      any-nix-shell
       fd
       keepassxc
       pavucontrol

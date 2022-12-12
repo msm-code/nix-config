@@ -67,6 +67,7 @@
     nmap  # popular port scanner
     dig  # dns debugging tool
     todoist  # todoist cli
+    cifs-utils  # for samba mounts
 
     (retroarch.override {
       cores = [
