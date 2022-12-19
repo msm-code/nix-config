@@ -40,10 +40,6 @@
     extraHosts = (builtins.readFile ./data/hosts);
   };
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  nixpkgs.config.pulseaudio = true;
-
   users.users.msm = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "audio" "libvirtd" ];

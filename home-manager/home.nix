@@ -66,6 +66,7 @@
       bintools
       python38Packages.malduck
       python38Packages.pycrypto
+      taskwarrior
     ]);
 
   home.sessionVariables.EDITOR = "nvim";

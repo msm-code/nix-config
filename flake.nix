@@ -23,6 +23,7 @@
         ./modules/borgbackup.nix
         ./modules/iphone.nix
         ./modules/spotify.nix
+        ./modules/sound.nix
         p4net.nixosModule
         home-manager.nixosModules.home-manager
         {

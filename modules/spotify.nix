@@ -1,4 +1,13 @@
-{ config, pkgs, p4net, lib, nixpkgs-latest, ... }:
+{ config, pkgs, secrets, ... }:
 {
-  services.spotifyd.enable = true;
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        username = "msm2e4d534d";
+        password = secrets.spotifypassword;
+        device_name = "transient";
+      };
+    };
+  };
 }
