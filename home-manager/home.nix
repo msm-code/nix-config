@@ -67,6 +67,16 @@
       python38Packages.malduck
       python38Packages.pycrypto
       taskwarrior
+      dino
+      quiterss
+      unrar-wrapper
+      scrcpy
+      cloak
+      usb-modeswitch
+      meld
+      pass
+      gnupg
+      ripgrep
     ]);
 
   home.sessionVariables.EDITOR = "nvim";

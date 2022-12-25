@@ -21,11 +21,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1670267727,
-        "narHash": "sha256-hUFAn5gjNHIBpLQT0CmqpuQjQwgWUm+D6aziGAYsDmw=",
+        "lastModified": 1671417167,
+        "narHash": "sha256-JkHam6WQOwZN1t2C2sbp1TqMv3TVRjzrdoejqfefwrM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a5f661b80e4c163510a5013b585a040a5c7ef55e",
+        "rev": "bb31220cca6d044baa6dc2715b07497a2a7c4bc7",
         "type": "github"
       },
       "original": {
@@ -35,11 +35,11 @@
     },
     "nixpkgs-latest": {
       "locked": {
-        "lastModified": 1670242877,
-        "narHash": "sha256-jBLh7dRHnbfvPPA9znOC6oQfKrCPJ0El8Zoe0BqnCjQ=",
+        "lastModified": 1671359686,
+        "narHash": "sha256-3MpC6yZo+Xn9cPordGz2/ii6IJpP2n8LE8e/ebUXLrs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6e51c97f1c849efdfd4f3b78a4870e6aa2da4198",
+        "rev": "04f574a1c0fde90b51bf68198e2297ca4e7cccf4",
         "type": "github"
       },
       "original": {
@@ -51,11 +51,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1670248078,
-        "narHash": "sha256-NljfevA44layMfbGi16VoTak23/195MKazB9984U4L8=",
+        "lastModified": 1671323474,
+        "narHash": "sha256-JnifWGgKWWlsNv7lnREMJsUOGnN9X1Fu1UIVcfbKEK0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7e72265b08d4c60f414a0f3ab162e24648e84342",
+        "rev": "e398530d85d637bf1fa75768b2df2e76484dea3c",
         "type": "github"
       },
       "original": {
@@ -83,11 +83,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1670387514,
-        "narHash": "sha256-dSsoDMyoVwy60ZaGJNoCXEzYToYfdV6XYyadnliMJnE=",
+        "lastModified": 1671479100,
+        "narHash": "sha256-dYh61DMUo0QWyFeSMzeYe3dMGLIehCnyevNTJGGyyhs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "25c0b2f7f43cbe50bf17f5c190c0aa6231d3754f",
+        "rev": "aa5687d6ff2f916d08fe0a4a9a84edc86867df43",
         "type": "github"
       },
       "original": {
@@ -123,11 +123,11 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1647964896,
-        "narHash": "sha256-jgU0nkTSTjYnQ+1irm5dv5ppxiP+JA5ODHc+5vhg6Yw=",
+        "lastModified": 1671479627,
+        "narHash": "sha256-VjVEmF2DtzUDejGEEN878AdLGiX5hMRuYEfgdzgGLWM=",
         "ref": "master",
-        "rev": "939b48a9fc12533b8bb9d17961fa8d18a7f24460",
-        "revCount": 2,
+        "rev": "7902cb6cfaeb6f0a658b4a17c6f5b3ea12b97bfb",
+        "revCount": 3,
         "type": "git",
         "url": "ssh://git@github.com/msm-code/nix-secrets"
       },
