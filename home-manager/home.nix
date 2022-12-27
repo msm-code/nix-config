@@ -17,6 +17,7 @@
     ./modules/fish-advanced.nix
     ./modules/nvim.nix
     ./modules/firefox.nix
+    ./modules/gpg.nix
   ];
 
   programs.vscode = {
@@ -75,8 +76,8 @@
       usb-modeswitch
       meld
       pass
-      gnupg
       ripgrep
+      gh
     ]);
 
   home.sessionVariables.EDITOR = "nvim";

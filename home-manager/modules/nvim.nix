@@ -22,6 +22,8 @@
       ## vim-sneak
       ## nerdtree
       vim-rooter
+      vim-airline
+      vim-visual-multi
     ]);
   };
 
