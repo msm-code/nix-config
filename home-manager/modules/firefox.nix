@@ -34,9 +34,17 @@
             "dom.serviceWorkers.enabled" = false;
             # no, I don't want your notifications
             "dom.push.enabled" = false;
+            # don't want no http
+            "dom.security.https_only_mode" = true;
             # show the real compact mode
             "browser.compactmode.show" = true;
+            # don't need fancy fonts
+            "gfx.downloadable_fonts.enabled" = false;
           };
+          # my nixos is not yet ready for this
+          # search = {
+          #   default = "DuckDuckGo";
+          # };
         };
       };
       extensions =

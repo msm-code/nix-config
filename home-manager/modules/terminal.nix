@@ -25,10 +25,8 @@
       kgs = "kubectl get service";
       ns = "nix-shell -p";
       s = "sudo";
-      t = "todoist";
-      td = "todoist close";
-      tl = "todoist\ --color\ list\ always\ --filter\ \'p1\ \|\ overdue\ \|\ today\ \|\ tomorrow\'";
-      ts = "todoist sync";
+      t = "task";
+      ts = "task sync";
       x = "xargs -i,,";
       xc = "wl-copy";
     };
