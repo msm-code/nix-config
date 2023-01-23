@@ -174,38 +174,40 @@
   };
 
   # Enable virtualisation solutions I use
-  virtualisation = {
-    docker.enable = true;
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        ovmf = {
-          enable = true;
-        };
-        # ACLs for input devices.
-        verbatimConfig = ''
-          cgroup_device_acl = [
-            "/dev/null",
-            "/dev/full",
-            "/dev/zero",
-            "/dev/random",
-            "/dev/urandom",
-            "/dev/ptmx",
-            "/dev/kvm",
-            "/dev/kqemu",
-            "/dev/rtc",
-            "/dev/hpet",
-            "/dev/input/by-id/usb-YICHIP_Wireless_Device-if01-event-mouse",
-            "/dev/input/by-id/usb-2188_USB_OPTICAL_MOUSE-event-mouse",
-            "/dev/input/by-id/usb-NOVATEK_USB_Keyboard-event-kbd",
-            "/dev/input/by-id/usb-1267_PS_2+USB_Mouse-event-mouse",
-            "/dev/input/by-id/usb-Dell_Computer_Corp_Dell_Universal_Receiver-if01-event-mouse",
-            "/dev/input/by-id/usb-Primax_Dell_Wired_Multimedia_Keyboard-event-kbd"
-          ]
-          namespaces = []
-        '';
+  virtualisation.docker = {
+    enable = true;
+    logDriver = "json-file";
+  };
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      ovmf = {
+        enable = true;
       };
+      # ACLs for input devices.
+      verbatimConfig = ''
+        cgroup_device_acl = [
+          "/dev/null",
+          "/dev/full",
+          "/dev/zero",
+          "/dev/random",
+          "/dev/urandom",
+          "/dev/ptmx",
+          "/dev/kvm",
+          "/dev/kqemu",
+          "/dev/rtc",
+          "/dev/hpet",
+          "/dev/input/by-id/usb-YICHIP_Wireless_Device-if01-event-mouse",
+          "/dev/input/by-id/usb-2188_USB_OPTICAL_MOUSE-event-mouse",
+          "/dev/input/by-id/usb-NOVATEK_USB_Keyboard-event-kbd",
+          "/dev/input/by-id/usb-1267_PS_2+USB_Mouse-event-mouse",
+          "/dev/input/by-id/usb-Dell_Computer_Corp_Dell_Universal_Receiver-if01-event-mouse",
+          "/dev/input/by-id/usb-Primax_Dell_Wired_Multimedia_Keyboard-event-kbd"
+        ]
+        namespaces = []
+      '';
     };
   };
 
