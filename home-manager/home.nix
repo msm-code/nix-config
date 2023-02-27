@@ -80,6 +80,7 @@
       gh
       pinta  # drawing program, used mostly for memes
       sxiv  # image viewer
+      mpv  # sound player
     ]);
 
   home.sessionVariables.EDITOR = "nvim";

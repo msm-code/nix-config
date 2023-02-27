@@ -14,16 +14,20 @@
   };
 
   # boot = {
-  #   # VFIO: disable nvidia and nouveau drives
-  #   blacklistedKernelModules = [ "nvidia" "nouveau" ];
-
-  #   # kernel modules required for VFIO
-  #   kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
-
-  #   extraModprobeConfig =
-  #      let nvidia_pci_id = "10de:1fb8";
-  #      in "options vfio-pci ids=${nvidia_pci_id}";
+  #   kernelModules = [ "virtio_gpu" ];
   # };
+
+  boot = {
+    # VFIO: disable nvidia and nouveau drives
+    blacklistedKernelModules = [ "nvidia" "nouveau" ];
+
+    # kernel modules required for VFIO
+    kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+
+    extraModprobeConfig =
+       let nvidia_pci_id = "10de:1fb8";
+       in "options vfio-pci ids=${nvidia_pci_id}";
+  };
 
   time.timeZone = "Europe/Warsaw";
 
@@ -161,7 +165,7 @@
 
   # Kot keeps turning off my laptop
   services.logind.extraConfig = ''
-    # don’t shutdown when power button is short-pressed
+    # don't shutdown when power button is short-pressed
     HandlePowerKey=ignore
   '';
 

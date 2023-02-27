@@ -40,6 +40,10 @@
             "browser.compactmode.show" = true;
             # don't need fancy fonts
             "gfx.downloadable_fonts.enabled" = false;
+            # too dangerous
+            "webgl.disabled" = true;
+            # or at least try
+            "privacy.resistFingerprinting" = true;
           };
           # my nixos is not yet ready for this
           # search = {
@@ -51,8 +55,8 @@
         with pkgs.nur.repos.rycee.firefox-addons; [
           # vim-like bindings for firefox
           vimium
-          # autoredirect to https
-          https-everywhere
+          # autoredirect to https (turned off because of build errors?)
+          # https-everywhere
           # block unnecessary web content
           ublock-origin
           # block tracking content (and save bandwidth)
