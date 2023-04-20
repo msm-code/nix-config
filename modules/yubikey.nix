@@ -5,6 +5,8 @@
     services.pcscd.enable = true;
     environment.systemPackages = with pkgs; [
         yubioath-desktop
+        yubikey-personalization
+        yubikey-manager
     ];
 
     # enable the pam module

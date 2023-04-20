@@ -6,10 +6,10 @@
     nur.url = "github:nix-community/NUR";
     secrets.url = "git+ssh://git@github.com/msm-code/nix-secrets";
     # p4net.url = "github:Patient-Engineering/p4net-nix";
-    p4net.url = "git+file:///home/msm/Projects/p4net-nix";
+    # p4net.url = "git+file:///home/msm/Projects/p4net-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, secrets, p4net, nixpkgs-latest }: {
+  outputs = { self, nixpkgs, home-manager, nur, secrets, nixpkgs-latest }: {
     nixosConfigurations.transient = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit secrets; inherit nixpkgs-latest; };
@@ -18,13 +18,14 @@
         ./modules/hardware-configuration.nix
         ./modules/configuration.nix
         # random features
-        ./modules/p4net.nix
-        #./modules/yubikey.nix
+        # ./modules/p4net.nix
+        ./modules/yubikey.nix
         ./modules/borgbackup.nix
         ./modules/iphone.nix
         ./modules/spotify.nix
         ./modules/sound.nix
-        p4net.nixosModule
+        ./modules/usbguard.nix
+        # p4net.nixosModule
         home-manager.nixosModules.home-manager
         {
           nixpkgs.overlays = [

@@ -65,22 +65,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1648203577,
-        "narHash": "sha256-CbXZkiVTA0ByV/yncFHCAGIa/AfcSb0cjqzEa56rO+Y=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d89f18a17e51532ed5f4d45297b0ddf11e46b9c8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-21.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nur": {
       "locked": {
         "lastModified": 1675899898,
@@ -96,28 +80,12 @@
         "type": "github"
       }
     },
-    "p4net": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1668476507,
-        "narHash": "sha256-sShH1hY9bqMFjRylyV/v02xluEMcWSliELRsZypfsKs=",
-        "type": "git",
-        "url": "file:///home/msm/Projects/p4net-nix"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:///home/msm/Projects/p4net-nix"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-latest": "nixpkgs-latest",
         "nur": "nur",
-        "p4net": "p4net",
         "secrets": "secrets"
       }
     },

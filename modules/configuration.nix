@@ -17,17 +17,23 @@
   #   kernelModules = [ "virtio_gpu" ];
   # };
 
-  boot = {
-    # VFIO: disable nvidia and nouveau drives
-    blacklistedKernelModules = [ "nvidia" "nouveau" ];
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.cudaSupport = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
 
-    # kernel modules required for VFIO
-    kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+  # boot = {
+  #   # VFIO: disable nvidia and nouveau drives
+  #   blacklistedKernelModules = [ "nvidia" "nouveau" ];
 
-    extraModprobeConfig =
-       let nvidia_pci_id = "10de:1fb8";
-       in "options vfio-pci ids=${nvidia_pci_id}";
-  };
+  #   # kernel modules required for VFIO
+  #   kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+
+  #   extraModprobeConfig =
+  #      let nvidia_pci_id = "10de:1fb8";
+  #      in "options vfio-pci ids=${nvidia_pci_id}";
+  # };
 
   time.timeZone = "Europe/Warsaw";
 
@@ -41,7 +47,11 @@
 
     firewall.enable = true;
 
-    extraHosts = (builtins.readFile ./data/hosts);
+    extraHosts = (builtins.readFile ./data/hosts) + ''
+      0.0.0.0 reddit.com
+      # 0.0.0.0 old.reddit.com
+      0.0.0.0 www.reddit.com
+    '';
   };
 
   users.users.msm = {
@@ -68,12 +78,9 @@
     dig  # dns debugging tool
     todoist  # todoist cli
     cifs-utils  # for samba mounts
+    cudatoolkit
 
-    (retroarch.override {
-      cores = [
-        libretro.mgba
-      ];
-    })
+    teamspeak_client
   ];
   environment.variables.EDITOR = "nvim";
   environment.variables.SUDO_EDITOR = "nvim";
@@ -207,8 +214,8 @@
           "/dev/input/by-id/usb-2188_USB_OPTICAL_MOUSE-event-mouse",
           "/dev/input/by-id/usb-NOVATEK_USB_Keyboard-event-kbd",
           "/dev/input/by-id/usb-1267_PS_2+USB_Mouse-event-mouse",
-          "/dev/input/by-id/usb-Dell_Computer_Corp_Dell_Universal_Receiver-if01-event-mouse",
-          "/dev/input/by-id/usb-Primax_Dell_Wired_Multimedia_Keyboard-event-kbd"
+          "/dev/input/by-id/usb-Primax_Dell_Wired_Multimedia_Keyboard-event-kbd",
+          "/dev/input/by-id/usb-Dell_Computer_Corp_Dell_Universal_Receiver-if01-event-mouse"
         ]
         namespaces = []
       '';
@@ -223,4 +230,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
+
 }
