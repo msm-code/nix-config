@@ -15,10 +15,11 @@
       specialArgs = { inherit secrets; inherit nixpkgs-latest; };
       modules = [
         # system configs
-        ./modules/hardware-configuration.nix
-        ./modules/configuration.nix
-        # random features
+        ./modules/hardware-configuration.nix  # hardware specific config
+        ./modules/configuration.nix  # main system config
+        # random, togglable features
         # ./modules/p4net.nix
+        ./modules/gpu.nix
         ./modules/yubikey.nix
         ./modules/borgbackup.nix
         ./modules/iphone.nix

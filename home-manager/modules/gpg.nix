@@ -28,7 +28,7 @@
     enableFishIntegration = true;
     enableSshSupport = true;
     enableZshIntegration = false;
-    pinentryFlavor = "curses";
+    pinentryFlavor = "qt";
 
     # hardening
     # https://www.designed-cybersecurity.com/tutorials/harden-gnupg-config/

@@ -19,10 +19,4 @@
     enable = true;
     enableFishIntegration = true;
   };
-
-  programs.fish = {
-    interactiveShellInit = ''
-    task
-    '';
-  };
 }

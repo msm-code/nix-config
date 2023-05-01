@@ -18,6 +18,7 @@
     ./modules/nvim.nix
     ./modules/firefox.nix
     ./modules/gpg.nix
+    ./modules/yubikey-touch-detector.nix
   ];
 
   programs.vscode = {
