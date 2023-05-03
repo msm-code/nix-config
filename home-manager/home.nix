@@ -1,4 +1,4 @@
-{ buildFirefoxXpiAddon, config, pkgs, lib, secrets, nixpkgs-latest, ... }:
+{ buildFirefoxXpiAddon, config, pkgs, lib, secrets, nixpkgs-latest, exts, ... }:
 {
   xdg.configFile."sway/config" = {
     source = pkgs.writeText "config" (builtins.readFile ./dotfiles/sway/config);
@@ -18,7 +18,6 @@
     ./modules/nvim.nix
     ./modules/firefox.nix
     ./modules/gpg.nix
-    ./modules/yubikey-touch-detector.nix
   ];
 
   programs.vscode = {
@@ -73,10 +72,9 @@
       quiterss
       unrar-wrapper
       scrcpy
-      cloak
       usb-modeswitch
       meld
-      pass
+      (pass.withExtensions (exts: [ exts.pass-otp ]))
       ripgrep
       gh
       pinta  # drawing program, used mostly for memes

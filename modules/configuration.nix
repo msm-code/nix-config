@@ -51,7 +51,6 @@
     htop  # better top
     imv  # wayland-native image viewer
     nixpkgs-latest.legacyPackages.x86_64-linux.signal-desktop  # signal communicator
-    nixpkgs-latest.legacyPackages.x86_64-linux.signal-cli  # signal cli
     nmap  # popular port scanner
     dig  # dns debugging tool
     todoist  # todoist cli

@@ -10,4 +10,5 @@ allow id 1395:0185 serial "A003390213104778" name "EPOS ADAPT 260" hash "qIvYC6d
 allow id 1050:0407 serial "" name "YubiKey OTP+FIDO+CCID" hash "Q+A8QQReKclmBSaDIYja0w4Bx6ld2IU6wF7HFKdtJ3Q=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface { 03:01:01 03:00:00 0b:00:00 } with-connect-type "hotplug"
 allow id 3151:3020 serial "" name "Wireless Device" hash "+siqfIPRiJ4jacz+GmZeLtgf8GNwkn6UXfwb0eb1eRA=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface { 03:01:01 03:01:02 } with-connect-type "hotplug"
 allow id 2188:0ae1 serial "" name " USB OPTICAL MOUSE" hash "HGBLcDsvTz3LEWtnaPJ+3ag/Xj545EahoBwrjO7TGus=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface 03:01:02 with-connect-type "hotplug"
+block id 03f0:e82a serial "CNB4P1W052" name "HP Laser 107a" hash "bYCSAcGXTbP1CvX6LdgGfOGDBVg6dTUKj4q8Eu5/EBo=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface { 07:01:02 07:01:04 ff:04:01 07:01:04 } with-connect-type "hotplug"
 

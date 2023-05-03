@@ -24,11 +24,15 @@
       kgp = "kubectl get pod";
       kgs = "kubectl get service";
       ns = "nix-shell -p";
+      nrs = "sudo nixos-rebuild switch --flake ~/Projects/System/";
       s = "sudo";
       t = "task";
       ts = "task sync";
       x = "xargs -i,,";
       xc = "wl-copy";
+      of = "fd .otp.gpg ~/.password-store/ -d 8 | cut -d/ -f5- | sed 's/[.]gpg//' | fzf | xargs -i,, pass otp ,, | wl-copy";
+      note = "touch ~/Projects/journal/(date +%Y-%m-%d).txt; nvim ~/Projects/journal/(date +%Y-%m-%d).txt";
+      pf = "/home/msm/opt/passfzf";
     };
     interactiveShellInit = ''
       set EDITOR nvim
