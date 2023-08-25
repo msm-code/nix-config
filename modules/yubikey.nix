@@ -8,9 +8,4 @@
         yubikey-personalization
         yubikey-manager
     ];
-
-    # enable the pam module
-    security.pam.u2f.enable = true;
-    security.pam.services.swaylock = {};
-    security.pam.u2f.control = "required";
 }

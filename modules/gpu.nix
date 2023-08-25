@@ -5,16 +5,16 @@
   # reboot to switch. Annoying, but virtualising GPUs is a pain.
 
   # --- VARIANT 1: virtio_gpu ---
-  # boot = {
-  #   kernelModules = [ "virtio_gpu" ];
-  # };
+  boot = {
+    kernelModules = [ "virtio_gpu" ];
+  };
 
   # --- VARIANT 2: nvidia drivers ---
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  nixpkgs.config.allowUnfree = true;
-  # nixpkgs.config.cudaSupport = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  # nixpkgs.config.allowUnfree = true;
+  # # nixpkgs.config.cudaSupport = true;
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  # hardware.opengl.enable = true;
 
   # --- VARIANT 3: vfio compatible, for gpu passthrough to VM ---
   # boot = {

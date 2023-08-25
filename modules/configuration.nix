@@ -55,9 +55,7 @@
     dig  # dns debugging tool
     todoist  # todoist cli
     cifs-utils  # for samba mounts
-    cudatoolkit
-
-    teamspeak_client
+    thunderbird  # for emails
   ];
   environment.variables.EDITOR = "nvim";
   environment.variables.SUDO_EDITOR = "nvim";
@@ -105,6 +103,10 @@
       swayr
       # Auto screenlock
       swayidle
+      # For git encryption/decryption
+      git-crypt
+      # net debugging
+      whois
     ];
   };
 
@@ -122,28 +124,6 @@
     enable = true;
   };
 
-  services.keybase = {
-    enable = true;
-  };
-
-  # Local caching DNS server
-  services.unbound = {
-    enable = false;
-    settings = {
-      server = {
-        interface = [ "127.0.0.1" ];
-        cache-min-ttl = 3600;
-      };
-      forward-zone = [
-        {
-          name = ".";
-          forward-tls-upstream = true;
-          forward-addr = [ "1.1.1.1@853#cloudflare-dns.com" ];
-        }
-      ];
-    };
-  };
-
   # Enable FsTrim for SSD
   services.fstrim.enable = true;
 
@@ -152,6 +132,8 @@
     # don't shutdown when power button is short-pressed
     HandlePowerKey=ignore
   '';
+
+  services.pcscd.enable = true;
 
   # Enable nix flakes
   nix = {
@@ -166,6 +148,7 @@
     enable = true;
   };
 
+  virtualisation.spiceUSBRedirection.enable = true;
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -201,10 +184,15 @@
   users.users.qemu-libvirtd.extraGroups = [ "input" ];
 
   xdg.portal.enable = true;
-  services.flatpak.enable = true;
+  xdg.portal.wlr.enable = true;
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    XDG_CURRENT_DESKTOP = "sway"; # https://github.com/emersion/xdg-desktop-portal-wlr/issues/20
+    XDG_SESSION_TYPE = "wayland"; # https://github.com/emersion/xdg-desktop-portal-wlr/pull/11
+  };
+  xdg.portal.gtkUsePortal = false;
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
-
 }
