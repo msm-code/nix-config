@@ -25,8 +25,6 @@
         ./modules/iphone.nix
         ./modules/spotify.nix
         ./modules/sound.nix
-        # ./modules/usbguard.nix
-        ./modules/yubikey-touch-detector.nix
         # p4net.nixosModule
         home-manager.nixosModules.home-manager
         {
