@@ -65,11 +65,11 @@
       # CTF and work related stuff
       ghidra-bin
       bintools
-      python38Packages.malduck
+      # python38Packages.malduck
       python38Packages.pycrypto
       taskwarrior
       dino
-      quiterss
+      # quiterss broken by qt
       unrar-wrapper
       scrcpy
       usb-modeswitch
@@ -80,6 +80,7 @@
       pinta  # drawing program, used mostly for memes
       sxiv  # image viewer
       mpv  # sound player
+      libreoffice
     ]);
 
   home.sessionVariables.EDITOR = "nvim";

@@ -24,6 +24,7 @@
     interfaces.wlp0s20f3.useDHCP = true;
 
     firewall.enable = true;
+    firewall.checkReversePath = "loose";
 
     extraHosts = (builtins.readFile ./data/hosts) + ''
       0.0.0.0 reddit.com
@@ -75,6 +76,8 @@
     }
   ];
 
+  programs.fish.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.sway = {
@@ -112,6 +115,8 @@
 
   # Don't really remember why this is enabled.
   programs.dconf.enable = true;
+
+  services.flatpak.enable = true;
 
   services.printing = {
     enable = true;
@@ -182,6 +187,22 @@
   };
 
   users.users.qemu-libvirtd.extraGroups = [ "input" ];
+
+  programs.steam = {
+    enable = true;
+  };
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "steam"
+    "steam-original"
+    "steam-run"
+  ];
+
+  services.tor = {
+    enable = true;
+    client.enable = true;
+  };
+
+  services.keybase.enable = true;
 
   xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;

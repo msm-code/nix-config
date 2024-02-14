@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     nixpkgs-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-22.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
     nur.url = "github:nix-community/NUR";
     secrets.url = "git+ssh://git@github.com/msm-code/nix-secrets";
     # p4net.url = "github:Patient-Engineering/p4net-nix";
@@ -26,6 +26,10 @@
         ./modules/spotify.nix
         ./modules/sound.nix
         # p4net.nixosModule
+        ({ ... }: {
+          nix.registry.nixpkgs.flake = nixpkgs;
+          nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+        })
         home-manager.nixosModules.home-manager
         {
           nixpkgs.overlays = [

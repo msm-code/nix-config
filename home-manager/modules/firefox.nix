@@ -45,26 +45,26 @@
             # or at least try
             "privacy.resistFingerprinting" = true;
           };
+          extensions =
+            with pkgs.nur.repos.rycee.firefox-addons; [
+              # vim-like bindings for firefox
+              vimium
+              # block unnecessary web content
+              ublock-origin
+              # block tracking content (and save bandwidth)
+              localcdn
+              # calendar checker plus
+              checker-plus-for-calendar
+              # magic internet money
+              metamask
+              # tab containers (isolate cookies)
+              multi-account-containers
+            ];
           # # my nixos is not yet ready for this
           # search = {
           #   default = "DuckDuckGo";
           # };
         };
       };
-      extensions =
-        with pkgs.nur.repos.rycee.firefox-addons; [
-          # vim-like bindings for firefox
-          vimium
-          # block unnecessary web content
-          ublock-origin
-          # block tracking content (and save bandwidth)
-          localcdn
-          # calendar checker plus
-          checker-plus-for-calendar
-          # magic internet money
-          metamask
-          # tab containers (isolate cookies)
-          multi-account-containers
-        ];
-      };
+    };
 }

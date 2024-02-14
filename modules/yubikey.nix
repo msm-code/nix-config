@@ -4,7 +4,7 @@
     services.udev.packages = [ pkgs.yubikey-personalization ];
     services.pcscd.enable = true;
     environment.systemPackages = with pkgs; [
-        yubioath-desktop
+        # yubioath-desktop
         yubikey-personalization
         yubikey-manager
     ];
