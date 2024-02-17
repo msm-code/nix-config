@@ -12,6 +12,16 @@
     source = pkgs.writeText "config" (builtins.readFile ./dotfiles/matterhorn/config.ini);
   };
 
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "application/pdf" = ["org.gnome.Evince.desktop"];
+    };
+    defaultApplications = {
+      "application/pdf" = ["org.gnome.Evince.desktop"];
+    };
+  };
+
   imports = [
     ./modules/terminal.nix
     ./modules/fish-advanced.nix
